@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using projectAPI.Data;
 
@@ -11,9 +12,11 @@ using projectAPI.Data;
 namespace projectAPI.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20240322085432_lgnreg")]
+    partial class lgnreg
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -47,6 +50,29 @@ namespace projectAPI.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "2bdf5d9a-34b0-47f3-b330-204685bf05b4",
+                            ConcurrencyStamp = "1",
+                            Name = "SuperAdmin",
+                            NormalizedName = "SuperAdmin"
+                        },
+                        new
+                        {
+                            Id = "3b4e41d4-aa2b-47fa-a0a8-957983376526",
+                            ConcurrencyStamp = "2",
+                            Name = "Admin",
+                            NormalizedName = "Admin"
+                        },
+                        new
+                        {
+                            Id = "31d76d1a-64f8-4d2a-a4fb-5389e20822df",
+                            ConcurrencyStamp = "3",
+                            Name = "User",
+                            NormalizedName = "User"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

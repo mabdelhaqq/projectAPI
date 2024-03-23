@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using projectAPI.Data;
 
@@ -11,9 +12,11 @@ using projectAPI.Data;
 namespace projectAPI.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20240322112251_editreg2")]
+    partial class editreg2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -47,6 +50,29 @@ namespace projectAPI.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "2ead8416-38bd-4c23-b1bc-fa495ed1fc4d",
+                            ConcurrencyStamp = "1",
+                            Name = "SuperAdmin",
+                            NormalizedName = "SuperAdmin"
+                        },
+                        new
+                        {
+                            Id = "03062ae3-8c18-4736-92ec-8a258b02f1c2",
+                            ConcurrencyStamp = "2",
+                            Name = "Admin",
+                            NormalizedName = "Admin"
+                        },
+                        new
+                        {
+                            Id = "fb782c39-25b6-4db7-ae6f-c7f0b72a202f",
+                            ConcurrencyStamp = "3",
+                            Name = "User",
+                            NormalizedName = "User"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

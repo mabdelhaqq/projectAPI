@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using ProjectMVC.Helper;
@@ -8,6 +9,7 @@ using System.Text.Json.Serialization;
 
 namespace ProjectMVC.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;

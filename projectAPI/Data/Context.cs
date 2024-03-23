@@ -20,17 +20,16 @@ namespace projectAPI.Data
             .HasIndex(ss => new { ss.StudentId, ss.SubjectId }).IsUnique();
 
 
-            SeedRole(builder);
+            //SeedRole(builder);
         }
-        private static void SeedRole(ModelBuilder builder)
+        /*private static void SeedRole(ModelBuilder builder)
         {
             builder.Entity<IdentityRole>().HasData
                 (
-                new IdentityRole() { Name = "SuperAdmin", ConcurrencyStamp = "1", NormalizedName = "SuperAdmin" },
-                new IdentityRole() { Name = "Admin", ConcurrencyStamp = "2", NormalizedName = "Admin" },
-                new IdentityRole() { Name = "User", ConcurrencyStamp = "3", NormalizedName = "User" }
+                new IdentityRole() { Name = "Admin", ConcurrencyStamp = "1", NormalizedName = "Admin" },
+                new IdentityRole() { Name = "User", ConcurrencyStamp = "2", NormalizedName = "User" }
                 );
-        }
+        }*/
         public DbSet<Student> Student { get; set; }
         public DbSet<Teacher> Teacher { get; set; }
         public DbSet<Subject> Subject { get; set; }

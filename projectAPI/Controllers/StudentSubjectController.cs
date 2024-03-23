@@ -6,11 +6,13 @@ using projectAPI.Data;
 using projectAPI.Models;
 using System.Text.Json.Serialization;
 using System.Text.Json;
+using Microsoft.AspNetCore.Authorization;
 
 namespace projectAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class StudentSubjectController : ControllerBase
     {
         private Context _context;

@@ -8,6 +8,7 @@ namespace projectAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class TeacherController : ControllerBase
     {
         private Context _context;

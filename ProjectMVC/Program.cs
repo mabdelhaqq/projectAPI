@@ -1,4 +1,15 @@
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using ProjectMVC.Areas.Identity.Data;
+using ProjectMVC.Data;
 var builder = WebApplication.CreateBuilder(args);
+
+
+var configuration = builder.Configuration;
+builder.Services.AddDbContext<ProjectMVCContext>(
+    options => options.UseSqlServer(configuration.GetConnectionString("ProjectMVCContextConnection")));
+builder.Services.AddDefaultIdentity<ProjectMVCUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<ProjectMVCContext>();
+
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -23,5 +34,8 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+app.MapRazorPages();
+
 
 app.Run();

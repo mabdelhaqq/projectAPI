@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using ProjectMVC.Helper;
 using ProjectMVC.Models;
@@ -6,6 +7,7 @@ using System.Text;
 
 namespace ProjectMVC.Controllers
 {
+    [Authorize]
     public class SubjectsController : Controller
     {
         StudentAPI _api = new StudentAPI();
